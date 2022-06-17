@@ -107,3 +107,50 @@ def create_hood_update(request, hood_id):
 
     context = {'form': form}
     return render(request, 'hood/create_update.html', context)
+
+
+
+def join_hood(request, id):
+    try:
+        hood = Hood.objects.get(id =id)
+    except ObjectDoesNotExist:
+        return Http404
+    request.user.profile.hood = hood
+    request.user.profile.save()
+    return redirect('index')
+
+
+def leave_hood(request, id):
+    try:
+        hood = Hood.objects.get(id =id)
+    except ObjectDoesNotExist:
+        return Http404
+    request.user.profile.hood = None
+    request.user.profile.save()
+    return redirect('index') 
+
+
+
+def search_business(request):
+    if request.method == 'GET':
+        name = request.GET.get('title')
+
+        results = Business.objects.filter(business_name__icontains=name).all()
+        # print(results)
+        message = f'name'
+        
+        context = {'results': results, 'message': message}
+        return render(request, 'results.html', context)
+
+    else:
+        message = "You haven't searched for any business"
+    return render(request, 'hood/search_business.html')
+
+
+def hood_members(request, hood_id):
+    hood = Hood.objects.get(id =hood_id)
+    residents = Profile.objects.filter(location = hood)
+    ctx ={
+        'residents':residents
+    }
+    return render(request, 'hood_residents.html', ctx)
