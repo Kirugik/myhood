@@ -40,10 +40,10 @@
                 <a class="btn btn-sm btn-outline-info mb-4" href="{% url 'create-update' hood.id %}">Create a Hood Update</a>
 
                 {% if hood.hood_admin == user.profile %}
-                <a href="{% url 'hood_members' hood.id %}" class="btn btn-sm btn-outline-info mb-4 ml-4">See All Hood Residents</a>
+                <a href="{% url 'hood-residents' hood.id %}" class="btn btn-sm btn-outline-info mb-4 ml-4">See All Hood Residents</a>
                 {% endif %}
                 
-                <form class="form-inline mb-4" method="get" action="#">
+                <form class="form-inline mb-4" method="get" action="{% url 'search-business' %}">
                     {% csrf_token %}
 
                     <div class="md-form my-0">

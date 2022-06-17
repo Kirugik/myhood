@@ -147,10 +147,9 @@ def search_business(request):
     return render(request, 'hood/search_business.html')
 
 
-def hood_members(request, hood_id):
-    hood = Hood.objects.get(id =hood_id)
-    residents = Profile.objects.filter(location = hood)
-    ctx ={
-        'residents':residents
-    }
-    return render(request, 'hood_residents.html', ctx)
+def hood_residents(request, hood_id):
+    hood = Hood.objects.get(id=hood_id)
+    residents = Profile.objects.filter(hood = hood)
+
+    context = {'residents':residents}
+    return render(request, 'hood/residents.html', context) 
