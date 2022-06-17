@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'hoodupdates.apps.HoodupdatesConfig',
     'url_or_relative_url_field',
     'bootstrap4',
+    'crispy_forms', 
 ]
 
 MIDDLEWARE = [
