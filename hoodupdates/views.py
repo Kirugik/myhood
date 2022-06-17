@@ -58,14 +58,22 @@ def create_hood(request):
         form = CreateHoodForm()
 
     context = {'form': form}
-    return render(request, 'create_hood.html', context)
+    return render(request, 'hood/create_hood.html', context)
 
 
 def view_hood(request, hood_id):
-    hood = Hood.objects.get(id =hood_id)
+    hood = Hood.objects.get(id=hood_id)
     businesses = Business.objects.filter(hood = hood)
-    updates = Update.objects.filter(hood = hood)
+    updates = Update.objects.filter(hood = hood) 
     updates = updates[::-1] 
 
     context = {'hood': hood, 'businesses': businesses, 'updates': updates}
-    return render(request, 'view_hood.html', context)
+    return render(request, 'hood/view_hood.html', context)
+
+
+
+def post_a_business(request):
+    pass 
+
+def create_hood_update(request):
+    pass 

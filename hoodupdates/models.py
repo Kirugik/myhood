@@ -11,7 +11,7 @@ class Profile(models.Model):
     full_name = models.CharField(max_length=120, blank=True)
     profession = models.CharField(max_length=120, blank=True) 
     contact = models.EmailField(null=True, blank=True)
-    hood = models.ForeignKey('Hood', on_delete=models.SET_NULL, null=True, blank=True)
+    hood = models.ForeignKey('Hood', on_delete=models.SET_NULL, null=True, blank=True, related_name='residents')
     created = models.DateTimeField(auto_now_add=True)  
 
     website= URLOrRelativeURLField(null=True,blank=True)
@@ -60,7 +60,7 @@ class Business(models.Model):
     business_description = models.TextField(max_length=255, blank=True) 
     business_logo = models.ImageField(upload_to='business_logos/')
     business_owner = models.ForeignKey(Profile,on_delete=models.CASCADE, related_name='business')
-    location = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='business')
+    hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='business')
     date_started = models.DateTimeField(auto_now_add=True) 
 
     def __str__(self):
@@ -87,7 +87,7 @@ class Update(models.Model):
     details = models.TextField(null=True) 
     posted = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner')
-    hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='hood_post')
+    hood = models.ForeignKey(Hood, on_delete=models.CASCADE, related_name='hood_updates')
 
     def __str__(self):
         return str(self.title) 

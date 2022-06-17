@@ -5,9 +5,16 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index, name='index'), 
+    path('', views.index, name='index'),
+
     path('profile/<str:username>/', views.profile, name='profile'), 
     path('update_profile/<str:username>/', views.update_profile, name='update-profile'), 
+
+    path('create-hood/', views.create_hood, name='create-hood'),
+    path('view-hood/<int:hood_id>/', views.view_hood, name='view-hood'),   
+
+    path('post-business/', views.post_a_business, name='post-business'),
+    path('create-update/', views.create_hood_update, name='create-update'), 
 ]  
 
 if settings.DEBUG:
