@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'hoodupdates.apps.HoodupdatesConfig',
-    'url_or_relative_url_field',  
+    'url_or_relative_url_field',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
