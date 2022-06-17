@@ -13,7 +13,7 @@ urlpatterns = [
     path('create-hood/', views.create_hood, name='create-hood'),
     path('view-hood/<int:hood_id>/', views.view_hood, name='view-hood'),   
 
-    path('post-business/', views.post_a_business, name='post-business'),
+    path('post-business/<int:hood_id>/', views.post_a_business, name='post-business'),
     path('create-update/', views.create_hood_update, name='create-update'), 
 ]  
 

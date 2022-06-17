@@ -72,8 +72,24 @@ def view_hood(request, hood_id):
 
 
 
-def post_a_business(request):
-    pass 
+def post_a_business(request, hood_id):
+    if request.method == 'POST':
+        hood = Hood.objects.get(id =hood_id)
+        form = PostBusinessForm(request.POST, request.FILES)
+        
+        if form.is_valid():
+            new_business_form = form.save(commit=False)
+            new_business_form.hood = hood
+            new_business_form.business_owner = request.user.profile
+            new_business_form.create_business()
+            return redirect('view-hood', hood.id)
+    else:
+        form = PostBusinessForm()
+    
+    context = {'form': form}
+    return render(request, 'hood/post_business.html', context) 
+
+
 
 def create_hood_update(request):
     pass 
