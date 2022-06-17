@@ -33,7 +33,7 @@ class Hood(models.Model):
     hood_image = models.ImageField(upload_to='hood_images/')
     police_contact = models.CharField(max_length=50, null=True, blank=True)
     health_dept_contact = models.CharField(max_length=50, null=True, blank=True)
-    hood_admin = models.ForeignKey(User, on_delete=models.SET_NULL)
+    hood_admin = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     since = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
