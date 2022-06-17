@@ -91,5 +91,19 @@ def post_a_business(request, hood_id):
 
 
 
-def create_hood_update(request):
-    pass 
+def create_hood_update(request, hood_id):
+    hood = Hood.objects.get(id =hood_id)
+
+    if request.method == 'POST':
+        form = NewUpdateForm(request.POST)
+        if form.is_valid():
+            new_hood_update = form.save(commit=False)
+            new_hood_update.hood = hood
+            new_hood_update.user = request.user.profile
+            new_hood_update.save()
+            return redirect('view-hood', hood.id)
+    else:
+        form = NewUpdateForm()
+
+    context = {'form': form}
+    return render(request, 'hood/create_update.html', context)

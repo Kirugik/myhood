@@ -14,7 +14,7 @@ urlpatterns = [
     path('view-hood/<int:hood_id>/', views.view_hood, name='view-hood'),   
 
     path('post-business/<int:hood_id>/', views.post_a_business, name='post-business'),
-    path('create-update/', views.create_hood_update, name='create-update'), 
+    path('create-update/<int:hood_id>/', views.create_hood_update, name='create-update'), 
 ]  
 
 if settings.DEBUG:

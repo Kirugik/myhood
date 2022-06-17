@@ -36,10 +36,11 @@
     <div class="container bg-white hoode">
         <div class="row">
             <div class="col-md-12">
-                <a href="#" class="btn btn-sm btn-outline-info mb-4 mr-4">Post New Business</a>
-                <a class="btn btn-sm btn-outline-info mb-4" href="#">Create a Hood Update</a>
+                <a href="{% url 'post-business' hood.id %}" class="btn btn-sm btn-outline-info mb-4 mr-4">Post New Business</a>
+                <a class="btn btn-sm btn-outline-info mb-4" href="{% url 'create-update' hood.id %}">Create a Hood Update</a>
+
                 {% if hood.hood_admin == user.profile %}
-                <a href="#" class="btn btn-sm btn-outline-info mb-4 ml-4">All Hood Residents</a>
+                <a href="{% url 'hood_members' hood.id %}" class="btn btn-sm btn-outline-info mb-4 ml-4">See All Hood Residents</a>
                 {% endif %}
                 
                 <form class="form-inline mb-4" method="get" action="#">

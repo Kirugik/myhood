@@ -6,7 +6,7 @@
 
 {% block content%}
 <div class="container">
-    <a href="" class="btn btn-sm btn-info mb-2">New Hood</a>
+    <a href="{% url 'create-hood' %}" class="btn btn-sm btn-info mb-2">New Hood</a>
     <div class="row">
 
     {% for hood in hoods %}
@@ -17,11 +17,11 @@
                 <h5 class="card-title">{{hood.name}}  ({{hood.located}}) <span class="ml-4">{{hood.occupants_count}} member{{hood.members.count|pluralize}}</span></h5>
                 <p class="card-text">{{hood.description}}</p>
 
-                <!-- {% if request.user.profile.location == hood %} -->
+                {% if request.user.profile.location == hood %}
                 <a href="" class="btn btn-outline-danger btn-sm">Leave Hood</a>
-                <!-- {% elif not request.user.profile.location %} -->
+                {% elif not request.user.profile.location %}
                 <a href="" class="btn btn-primary btn-sm">Join Hood</a>
-                {% endif %}
+                {% endif %} 
             </div>
         </div>
     </div>
