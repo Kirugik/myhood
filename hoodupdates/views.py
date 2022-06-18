@@ -35,7 +35,8 @@ def sign_up(request):
             password=password1,
         )
         new_user.save()
-        return render (request,'auth/sign-in.html')
+        return redirect('sign-in') 
+
     return render(request, 'auth/sign_up.html') 
 
 
@@ -49,6 +50,7 @@ def sign_in(request):
             login(request,user)
             messages.success(request,"You have successfuly logged in")
             return redirect ('index')
+
     return render(request, 'auth/sign_in.html') 
 
 
@@ -58,7 +60,7 @@ def sign_out(request):
     return redirect ('sign-in')
 
 
-
+@login_required(login_url='sign-in')
 def profile(request, username):
     user = User.objects.get(username=username)
 
@@ -75,6 +77,8 @@ def profile(request, username):
     return render(request, 'hood/profile.html', context)
 
 
+
+@login_required(login_url='sign-in') 
 def update_profile(request, username):
     user = User.objects.get(username = username)
     if request.method == 'POST':
@@ -90,6 +94,7 @@ def update_profile(request, username):
 
 
 
+@login_required(login_url='sign-in') 
 def create_hood(request):
     if request.method == 'POST':
         form = CreateHoodForm(request.POST, request.FILES)
@@ -105,6 +110,8 @@ def create_hood(request):
     return render(request, 'hood/create_hood.html', context)
 
 
+
+@login_required(login_url='sign-in')
 def view_hood(request, hood_id):
     hood = Hood.objects.get(id=hood_id)
     businesses = Business.objects.filter(hood = hood)
@@ -116,7 +123,8 @@ def view_hood(request, hood_id):
 
 
 
-def post_a_business(request, hood_id):
+@login_required(login_url='sign-in') 
+def post_a_business(request, hood_id): 
     if request.method == 'POST':
         hood = Hood.objects.get(id =hood_id)
         form = PostBusinessForm(request.POST, request.FILES)
@@ -126,7 +134,7 @@ def post_a_business(request, hood_id):
             new_business_form.hood = hood
             new_business_form.business_owner = request.user.profile
             new_business_form.create_business()
-            return redirect('view-hood', hood.id)
+            return redirect('view-hood', hood.id) 
     else:
         form = PostBusinessForm()
     
@@ -135,6 +143,7 @@ def post_a_business(request, hood_id):
 
 
 
+@login_required(login_url='sign-in') 
 def create_hood_update(request, hood_id):
     hood = Hood.objects.get(id =hood_id)
 
@@ -154,6 +163,7 @@ def create_hood_update(request, hood_id):
 
 
 
+@login_required(login_url='sign-in') 
 def join_hood(request, id):
     try:
         hood = Hood.objects.get(id =id)
@@ -191,6 +201,7 @@ def search_business(request):
     return render(request, 'hood/search_business.html')
 
 
+@login_required(login_url='sign-in') 
 def hood_residents(request, hood_id):
     hood = Hood.objects.get(id=hood_id)
     residents = Profile.objects.filter(hood = hood)
