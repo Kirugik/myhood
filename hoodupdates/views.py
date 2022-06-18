@@ -14,6 +14,18 @@ def index(request):
     return render(request, 'index.html', context)
 
 
+def sign_up(request):
+    return render(request, 'auth/sign_up.html') 
+
+
+def sign_in(request):
+    return render(request, 'auth/sign_in.html') 
+
+
+def sign_out(request):
+    pass 
+
+
 
 def profile(request, username):
     user = User.objects.get(username=username)

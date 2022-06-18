@@ -7,6 +7,10 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
 
+    path('sign-up/', views.sign_up, name='sign-up'),
+    path('sign-in/', views.sign_in, name='sign-in'),
+    path('sign-out/', views.sign_out, name='sign-out'),   
+
     path('profile/<str:username>/', views.profile, name='profile'), 
     path('update_profile/<str:username>/', views.update_profile, name='update-profile'), 
 
