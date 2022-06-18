@@ -21,7 +21,7 @@
                             <span class="badge badge-secondary" style="margin-right: 40px; padding: 10px; font-size: large;">{{hood.name}}</span>
                             <h5 class="card-title tt" style="margin-bottom: 10px; margin-top: 10px;">{{hood.located}}</h5>
                             <h6 class="card-text">
-                                <span><strong>{{hood.residents.count}}</strong> Residents {{hood.residents.count|pluralize}}</span> | <strong>{{hood.business.count }}</strong> Businesses | <strong> {{hood.hood_updates.count }}</strong> News Updates{{ hood.hood_updates.count|pluralize }} 
+                                <span><strong>{{hood.residents.count}}</strong> Resident{{hood.residents.count|pluralize}}</span> | <strong>{{hood.business.count}}</strong> Businesses | <strong>{{hood.hood_updates.count}}</strong> News Update{{ hood.hood_updates.count|pluralize}} 
                             </h6>
                             <p class="card-text">{{hood.description}}</p>
                             <p class="card-text"><span class="text-info">Police Contact: </span>&nbsp;<strong>{{hood.police_contact}}</strong> | <span class="text-info">Health Department Contact: </span> <strong>{{hood.health_dept_contact}}</strong></p>
@@ -54,19 +54,19 @@
 
 
                 
-                <h4 class="D-block mx-auto tt">Hood Businesses</h4>
+                <h5 class="D-block mx-auto">Hood Businesses</h5>
                 <hr>
                 <div class="row">
                     
                     {% for business in businesses %}
-                    <div class="col-md-4">
-                        <div class="card profile-card-2">
+                    <div class="col-md-3">
+                        <div class="card profile-card-2 mb-2" style="min-height: 450px;">
                             <div class="card-img-block">
-                                <img class="img-fluid" src="{{business.business_logo.url}}" alt="Card image cap">
+                                <img class="img-fluid" src="{{business.business_logo.url}}" alt="business image" style="width: 300px;">
                             </div>
-                            <div class="card-body pt-5">
-                                <img src="{{busi.owner.profile_pic.url}}"style alt="profile-image" class="profile" />
-                                <h5 class="card-title">{{business.business_name}}</h5>
+                            <div class="card-body pt-2">
+                                <img src="{{business.business_owner.profile_picture.url}}" class="rounded-circle" width="40" height="40" alt="profile-image"/>
+                                <h6 class="card-title">{{business.business_name}}</h6>
                                 <p class="card-text">Business Owner: <small class="text-muted">{{business.business_owner.full_name|title }}</small></p> 
                                 <p class="card-text">{{business.business_description}}</p>
                                 <div class="icon-block"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
@@ -81,16 +81,17 @@
 
 
 
-                <h4 class="D-block mx-auto tt">Hood Updates</h4> 
+                <h5 class="D-block mx-auto">Hood Updates</h5> 
                 <div class="row">
 
                     {% for update in updates %}
-                    <div class="col-md-4">
-                        <div class="card mb-4 hpost">
+                    <div class="col-md-3">
+                        <div class="card mb-4" style="min-height: 300px;">
                             <div class="card-body">
-                                <h5 class="card-title">{{update.title}}</h5>
-                                <p class="card-text">"{{update.details}}"</p>
-                                <p class="card-text">Posted by: <small class="text-white">{{update.user.full_name|title }}</small> <small style="float:right">{{update.posted|timesince}} ago</small></p> 
+                                <h6 class="card-title">{{update.title}}</h6>
+                                <p class="card-text">"{{update.details}}"</p> <br>
+                                <p class="card-text">Posted by: <small>{{update.user.full_name|title }}</small></p> 
+                                <p class="card-text"><small>{{update.posted|timesince}} ago</small></p>
                             </div>
                         </div>
                     </div>
