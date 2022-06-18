@@ -25,7 +25,7 @@
                             </h6>
                             <p class="card-text">{{hood.description}}</p>
                             <p class="card-text"><span class="text-info">Police Contact: </span>&nbsp;<strong>{{hood.police_contact}}</strong> | <span class="text-info">Health Department Contact: </span> <strong>{{hood.health_dept_contact}}</strong></p>
-                            <p class="card-text">Hood Administrator: <small class="text-muted">{{hood.hood_admin.user.username}}</small></p> 
+                            <p class="card-text">Hood Administrator: <small class="text-muted">{{hood.hood_admin.full_name}}</small></p>  
                         </div>
                     </div>
                 </div>
@@ -67,13 +67,15 @@
                             <div class="card-body pt-5">
                                 <img src="{{busi.owner.profile_pic.url}}"style alt="profile-image" class="profile" />
                                 <h5 class="card-title">{{business.business_name}}</h5>
-                                <p class="card-text">Business Owner: <small class="text-muted">{{ business.business_owner.full_name|title }}</small></p> 
+                                <p class="card-text">Business Owner: <small class="text-muted">{{business.business_owner.full_name|title }}</small></p> 
                                 <p class="card-text">{{business.business_description}}</p>
                                 <div class="icon-block"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
                             </div>
                         </div>
                     </div>
                     {% endfor %}
+
+                    <hr>
                 
                 </div>
 
@@ -88,7 +90,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{update.title}}</h5>
                                 <p class="card-text">"{{update.details}}"</p>
-                                <p class="card-text">Posted by: <small class="text-white">{{update.user.username|title }}</small> <small style="float:right">{{update.posted|timesince}} ago</small></p> 
+                                <p class="card-text">Posted by: <small class="text-white">{{update.user.full_name|title }}</small> <small style="float:right">{{update.posted|timesince}} ago</small></p> 
                             </div>
                         </div>
                     </div>
