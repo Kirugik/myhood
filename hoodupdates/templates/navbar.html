@@ -11,10 +11,16 @@
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}"> 
 
 
+    <style>
+        .navbar-nav nav-item a:hover {
+            color: aqua;
+        }
+
+
+    </style>
+
     {% block styles %}
     {% bootstrap_css %}
-    
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -22,16 +28,16 @@
     {% endblock %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #45af2a; color: #000000;"> 
+    <nav class="navbar navbar-expand-lg" style="background-color: #45af2a;"> 
         <!-- Container wrapper -->
         <div class="container-fluid">
             <a class="navbar-brand" href="/" style="padding-top: 20px; font-weight: bold;">
-                <span style="font-size: 15px;">M</span>
-                <span style="font-size: 17px;">Y</span>
-                <span style="font-size: 19px;">H</span>
-                <span style="font-size: 21px;">O</span>
-                <span style="font-size: 17px;">O</span>
-                <span style="font-size: 15px;">D</span>
+                <span style="font-size: 15px; color: #000000;">M</span>
+                <span style="font-size: 17px; color: #000000;">Y</span>
+                <span style="font-size: 19px; color: #000000;">H</span>
+                <span style="font-size: 21px; color: #000000;">O</span>
+                <span style="font-size: 17px; color: #000000;">O</span>
+                <span style="font-size: 15px; color: #000000;">D</span>
             </a> 
             
             <!-- Toggle button -->
@@ -54,25 +60,25 @@
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 28%;">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}" style="color: #000000; font-size: 18px; margin-right: 20px;">Home</a> 
+                        <a class="nav-link" href="{% url 'index' %}" style="color: #ffffff; font-size: 18px; margin-right: 20px;">Home</a> 
                     </li>
 
                     {% if user.profile.hood %} 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'view-hood' user.profile.hood.id %}" style="color: #000000; font-size: 18px; margin-right: 20px;">My Hood</a>
+                        <a class="nav-link" href="{% url 'view-hood' user.profile.hood.id %}" style="color: #ffffff; font-size: 18px; margin-right: 20px;">My Hood</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'create-hood' %}" style="color: #000000; font-size: 18px; margin-right: 20px;">Create Hood</a> 
+                        <a class="nav-link" href="{% url 'create-hood' %}" style="color: #ffffff; font-size: 18px; margin-right: 20px;">Create Hood</a> 
                     </li>
                     {% endif %} 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #000000; font-size: 18px; margin-right: 20px;">Businesses</a>
+                        <a class="nav-link" href="#" style="color: #ffffff; font-size: 18px; margin-right: 20px;">Businesses</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #000000; font-size: 18px;">Hood Updates</a>
+                        <a class="nav-link" href="#" style="color: #ffffff; font-size: 18px;">Hood Updates</a>
                     </li>
                 </ul>
                 <!-- Left links -->
@@ -85,7 +91,7 @@
                 <!-- Avatar -->
                 <div class="dropdown">
                     <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{user.profile.profile_picture.url}}" class="rounded-circle" width="40" height="40" alt="Profile" loading="lazy"/>
+                        <img src="{{user.profile.profile_picture.url}}" class="rounded-circle" width="40" height="40" alt="" loading="lazy"/>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                         {% if user.is_authenticated %}

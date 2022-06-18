@@ -6,7 +6,7 @@
 
 {% block content%}
 {% include 'navbar.html' %}  
-<div class="container-fluid mt-1">
+<div class="container-fluid mt-3">
     <!-- <div class="row">
 
         {% for hood in hoods %}
@@ -39,15 +39,15 @@
         <div class="col-md-6">  
             <div class="card mb-4 mx-3 d-flex flex-row" style="min-height:300px; border: none;">
                 <div class="hood-info">
-                    <h5 class="card-title">{{hood.name}}, {{hood.located}}</h5>
+                    <h5 class="card-title" style="color: #57652a">{{hood.name}}, {{hood.located}}</h5>
                     <p class="mb-2">{{hood.occupants_count}} Residents{{hood.members.count|pluralize}}</p>
-                    <p class="card-text">{{hood.description}}</p>
+                    <p class="card-text">{{hood.description}}</p> 
                     
                     
                     {% if request.user.profile.location == hood %}
-                    <a href="" class="btn btn-outline-danger btn-sm">Leave Hood</a>
+                    <a href="" class="btn btn-sm" style="background-color: #e14658; color: #ffffff;">Leave Hood</a>
                     {% elif not request.user.profile.location %}
-                    <a href="" class="btn btn-primary btn-sm">Join Hood</a>
+                    <a href="" class="btn btn-sm" style="background-color: #57652a; color: #ffffff;">Join Hood</a>
                     {% endif %} 
                 </div>
 
@@ -59,12 +59,6 @@
         {% endfor %} 
 
     </div>
-
-
-
-
-
-
 
 
 
