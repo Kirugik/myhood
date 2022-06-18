@@ -19,7 +19,7 @@ urlpatterns = [
     path('<int:hood_id>/residents/', views.hood_residents, name='hood-residents'),
 
     path('join_hood/<int:id>/', views.join_hood, name='join-hood'),
-    path('leave_hood/<int:id>/', views.leave_hood, name='leave-hood'),
+    path('leave_hood/<int:id>/', views.leave_hood, name='leave-hood'), 
 
     path('post-business/<int:hood_id>/', views.post_a_business, name='post-business'),
     path('search-business/', views.search_business, name='search-business'),

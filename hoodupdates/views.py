@@ -1,10 +1,15 @@
 from django.shortcuts import render, redirect
 from django.http.response import Http404 
 from .models import Profile, Hood, Business, Update
+from django.contrib import messages
+from django.contrib.auth import login,authenticate,logout 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import UpdateProfileForm, CreateHoodForm, PostBusinessForm, NewUpdateForm
 from django.core.exceptions import ObjectDoesNotExist 
+
+
+
 
 # Create your views here.
 def index(request):
@@ -15,15 +20,42 @@ def index(request):
 
 
 def sign_up(request):
+    if request.method== 'POST':
+        username=request.POST['username']
+        email=request.POST["email"]
+        password1=request.POST['password1']
+        password2=request.POST['password2']
+        if password1 != password2:
+            messages.error(request,"Passwords Do Not Match!!")
+            return redirect('sign-up')
+            
+        new_user=User.objects.create_user(
+            username=username,
+            email=email,
+            password=password1,
+        )
+        new_user.save()
+        return render (request,'auth/sign-in.html')
     return render(request, 'auth/sign_up.html') 
 
 
 def sign_in(request):
+    if request.method== 'POST':
+        username=request.POST['username']
+        password=request.POST['password']
+        
+        user=authenticate(request,username=username,password=password)
+        if user is not None:
+            login(request,user)
+            messages.success(request,"You have successfuly logged in")
+            return redirect ('index')
     return render(request, 'auth/sign_in.html') 
 
 
 def sign_out(request):
-    pass 
+    logout(request)
+    messages.success(request,"Logged out!!!")
+    return redirect ('sign-in')
 
 
 
