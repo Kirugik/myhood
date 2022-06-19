@@ -7,7 +7,7 @@
 {% block content%}
 {% include 'navbar.html' %}   
 {% load crispy_forms_tags %} 
-<div class="container" style="margin-top:-4">
+<div class="container mt-1">
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-3">
@@ -18,7 +18,7 @@
 
                     <div class="col-md-7">
                         <div class="card-body">
-                            <span class="badge badge-secondary" style="margin-right: 40px; padding: 10px; font-size: large;">{{hood.name}}</span>
+                            <span class="badge" style="margin-right: 40px; padding: 10px; font-size: large; background-color: #57652a;">{{hood.name}}</span>
                             <h5 class="card-title tt" style="margin-bottom: 10px; margin-top: 10px;">{{hood.located}}</h5>
                             <h6 class="card-text">
                                 <span><strong>{{hood.residents.count}}</strong> Resident{{hood.residents.count|pluralize}}</span> | <strong>{{hood.business.count}}</strong> Businesses | <strong>{{hood.hood_updates.count}}</strong> News Update{{ hood.hood_updates.count|pluralize}} 
@@ -34,14 +34,14 @@
     </div>
     
     
-    <div class="container bg-white hoode">
+    <div class="container bg-white">
         <div class="row">
             <div class="col-md-12">
-                <a href="{% url 'post-business' hood.id %}" class="btn btn-sm btn-outline-info mb-4 mr-4">Post New Business</a>
-                <a class="btn btn-sm btn-outline-info mb-4" href="{% url 'create-update' hood.id %}">Create a Hood Update</a>
+                <a href="{% url 'post-business' hood.id %}" class="btn btn-sm mb-4 mr-4" style="background-color: #57652a; color: #ffffff;">Post New Business</a>
+                <a href="{% url 'create-update' hood.id %}" class="btn btn-sm mb-4" style="background-color: #57652a; color: #ffffff;">Create a Hood Update</a>
 
                 {% if hood.hood_admin == user.profile %}
-                <a href="{% url 'hood-residents' hood.id %}" class="btn btn-sm btn-outline-info mb-4 ml-4">See All Hood Residents</a>
+                <a href="{% url 'hood-residents' hood.id %}" class="btn btn-sm mb-4 ml-4" style="background-color: #57652a; color: #ffffff;">See All Hood Residents</a>
                 {% endif %}
                 
                 <form class="form-inline mb-4" method="get" action="{% url 'search-business' %}">
