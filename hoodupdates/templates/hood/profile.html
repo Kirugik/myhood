@@ -29,8 +29,7 @@
                                     <!-- <p class="text-secondary mb-1">{{profile.profession}}</p> -->
                                     <!-- <p class="text-muted font-size-sm">Location: {{profile.hood}}</p> -->
                                     <p class="text-muted font-size-sm">Member since {{profile.created}}</p>
-                                    <button class="btn btn-sm" style="background-color: #57652a; color: #ffffff;">Follow</button>
-                                    <button class="btn btn-sm" style="background-color: #45af2a; color: #ffffff;">Message</button>
+                                    <p class="font-size-sm">{{profile.bio|slice:":100"}}...</p> 
                                 </div>
                             </div>
                         </div>
