@@ -10,7 +10,11 @@
         <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
+        <th scope="col">ID Number</th>
         <th scope="col">Location</th>
+        <th scope="col">Member since</th>
+        <th scope="col">Profession</th>
+        <th scope="col">Contact</th>
         </tr>
     </thead>
     <tbody>
@@ -18,10 +22,15 @@
     {% for resident in residents %}
         <tr>
         <th scope="row">*</th>
-        <td>{{resident.user.username }}</td>
+        <td>{{resident.full_name }}</td>
+        <td>{{resident.id_number}}</td>
         <td>{{resident.hood}}</td>
+        <td>{{resident.created}}</td> 
+        <td>{{resident.profession}}</td>
+        <td>{{resident.contact}}</td>  
         </tr>
     {% endfor %}
+    
     </tbody>
 </table>
 {% endblock %}
