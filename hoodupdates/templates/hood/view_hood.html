@@ -21,11 +21,12 @@
                             <span class="badge" style="margin-right: 40px; padding: 10px; font-size: large; background-color: #57652a;">{{hood.name}}</span>
                             <h5 class="card-title tt" style="margin-bottom: 10px; margin-top: 10px;">{{hood.located}}</h5>
                             <h6 class="card-text">
-                                <span><strong>{{hood.residents.count}}</strong> Resident{{hood.residents.count|pluralize}}</span> | <strong>{{hood.business.count}}</strong> Businesses | <strong>{{hood.hood_updates.count}}</strong> News Update{{ hood.hood_updates.count|pluralize}} 
+                                <span><strong>{{hood.residents.count}}</strong> Resident{{hood.residents.count|pluralize}}</span> | <strong>{{hood.business.count}}</strong> Businesses | <strong>{{hood.hood_updates.count}}</strong> News Update{{hood.hood_updates.count|pluralize}} 
                             </h6>
                             <p class="card-text">{{hood.description}}</p>
-                            <p class="card-text"><span class="text-info">Police Contact: </span>&nbsp;<strong>{{hood.police_contact}}</strong> | <span class="text-info">Health Department Contact: </span> <strong>{{hood.health_dept_contact}}</strong></p>
-                            <p class="card-text">Hood Administrator: <small class="text-muted">{{hood.hood_admin.full_name}}</small></p>  
+                            <p class="card-text"><span class="police-contact" style="color: #45af2a;">Police Contact: </span>&nbsp;<strong>{{hood.police_contact}}</strong> | <span class="health-dept-contact" style="color: #45af2a;;">Health Department Contact: </span> <strong>{{hood.health_dept_contact}}</strong></p>
+                            <p class="card-text">Hood Administrator: <small class="text-muted">{{hood.hood_admin.full_name}}</small></p> 
+                            <p class="card-text">Hood Administrator Contact: <small class="text-muted">{{hood.hood_admin.contact}}</small></p>   
                         </div>
                     </div>
                 </div>
