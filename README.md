@@ -18,7 +18,7 @@ Most people would like to receive important updates on whatever is happening in 
     - As a user, I would like to find Contact Information for the health department and Police authorities near my neighborhood.
     - As a user, I would like to create Posts that will be visible to everyone in my neighborhood.
     - As a user, I would like to change My neighborhood when I decide to move out.
-    - As a user, I would like to, I would lile to only view details of a single neighborhood.
+    - As a user, I would like to, I would like to only view details of a single neighborhood.
 
 # Screenshots
 
@@ -47,6 +47,49 @@ Most people would like to receive important updates on whatever is happening in 
 ![](static/images/new-hood.png)
 
 # Behaviour Driven Development (BDD)
+
+- Scenario 1: User wants to sign in with the application
+  *GIVEN the user has signed up with the application.
+  *THEN the user can sign in using the username and password created when signing up.
+
+- Scenario 1: User wants to join a neighborhood
+  *GIVEN the user has signed in with the application, and is on the homepage
+  *THEN the user can see a list of neighborhoods already created, and can click 'join hood' button to join a given neighborhood.
+
+- Scenario 2: User wants to set up a profile
+  *GIVEN the user has signed in with the application.
+  *WHEN the user navigates to the profile page and clicks the update profile button on the navbar,
+  \*THEN the user is able to add details to his/her profile
+
+- Scenario 3: User wants to find a list of different businesses in the neighborhood
+  *GIVEN the user has signed in with the application.
+  *AND the user has joined one of the neighborhoods listed on the home page
+  \*WHEN the user clicks the 'my hood' tab in the navbar and navigates to the neighborhood details page
+  \*THEN the user can see a list of businesses in the neighborhood listed in the page.
+
+- Scenario 4: User wants to find Contact Information for the health department and Police authorities in the neighborhood
+  *GIVEN the user has signed in with the application.
+  *AND the user has joined one of the neighborhoods listed on the home page
+  \*WHEN the user clicks the 'my hood' tab in the navbar and navigates to the neighborhood details page
+  \*THEN the user can see the Contact Information for the health department and Police authorities indicated on the page.
+
+- Scenario 5: User wants to create Posts that will be visible to everyone in the neighborhood.
+  *GIVEN the user has signed in with the application.
+  *AND the user has joined one of the neighborhoods listed on the home page
+  \*WHEN the user clicks the 'my hood' tab in the navbar and navigates to the neighborhood details page
+  \*AND clicks the 'create a hood update' button on the page
+  \*THEN the user can fill in the details of the post to create a new post that will be visible to everyone in the neighborhood.
+
+- Scenario 6: User wants to change neighborhood
+  *GIVEN the user has signed in with the application
+  *AND the user has joined one of the neighborhoods listed on the home page
+  *WHEN the user clicks the 'leave hood' button on the home page to leave the current neighborhood
+  *THEN the user can click the 'join hood' button to join another neighborhood.
+
+- Scenario 7: User wants to only view details of a single neighborhood
+  *GIVEN the user has signed in with the application.
+  *AND the user has joined one of the neighborhoods listed on the home page
+  \*THEN the user can click the 'my hood' button in the navbar to see the details of a single neighborhood.
 
 # Setup/Installation
 
