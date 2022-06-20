@@ -40,6 +40,7 @@ def sign_up(request):
     return render(request, 'auth/sign_up.html') 
 
 
+
 def sign_in(request):
     if request.method== 'POST':
         username=request.POST['username']
@@ -54,10 +55,12 @@ def sign_in(request):
     return render(request, 'auth/sign_in.html') 
 
 
+
 def sign_out(request):
     logout(request)
     messages.success(request,"Logged out!!!")
     return redirect ('sign-in')
+
 
 
 @login_required(login_url='sign-in')

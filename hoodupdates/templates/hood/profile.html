@@ -118,7 +118,7 @@
                                 
                                 <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>My Businesses</h6>
                                 {% for business in businesses %} 
-                                <div class="alert alert-dark" role="alert">
+                                <div class="alert" style="background: #45af2a; color: #ffffff" role="alert">
                                     <p><strong>{{business.business_name}}</strong></p>
                                     <p>{{business.business_description}}</p>  
                                     
@@ -141,10 +141,10 @@
                                 
                                 <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>My Posts</h6>
                                 {% for update in updates %} 
-                                <div class="alert alert-dark" role="alert">
+                                <div class="alert" style="background: #45af2a; color: #ffffff" role="alert">
                                     <p><strong>{{update.title}}</strong></p>
                                     <p>{{update.details}}</p>
-                                    <p class="text-muted">Posted {{update.posted|timesince}} ago</p> 
+                                    <p style="color: #000000">Posted {{update.posted|timesince}} ago</p> 
                                 </div>
                                 
                                 {% empty %}
