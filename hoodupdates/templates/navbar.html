@@ -55,13 +55,13 @@
                         <a class="nav-link" href="{% url 'index' %}" style="color: #ffffff; font-size: 18px; margin-right: 20px;">Home</a> 
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'create-hood' %}" style="color: #ffffff; font-size: 18px; margin-right: 20px;">Create Hood</a> 
+                    </li>
+
                     {% if user.profile.hood %} 
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'view-hood' user.profile.hood.id %}" style="color: #ffffff; font-size: 18px; margin-right: 20px;">My Hood</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'create-hood' %}" style="color: #ffffff; font-size: 18px; margin-right: 20px;">Create Hood</a> 
                     </li>
                     {% endif %} 
                     
