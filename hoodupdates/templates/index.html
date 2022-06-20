@@ -7,29 +7,6 @@
 {% block content%}
 {% include 'navbar.html' %}  
 <div class="container-fluid mt-3">
-    <!-- <div class="row">
-
-        {% for hood in hoods %}
-        <div class="col-md-3">
-            <div class="card mb-4" style="min-height:300px; border: none;">
-                <img src="{{hood.hood_image.url}}" class="card-img-top" alt="{{hood.name}}" style="min-height: 350px; width: 400px;"> 
-                <div class="card-body">
-                    <h5 class="card-title">{{hood.name}}, {{hood.located}}</h5>
-                    <p class="mb-2">{{hood.occupants_count}} Residents{{hood.members.count|pluralize}}</p>
-                    <p class="card-text">{{hood.description}}</p>
-                    
-                    
-                    {% if request.user.profile.location == hood %}
-                    <a href="" class="btn btn-outline-danger btn-sm">Leave Hood</a>
-                    {% elif not request.user.profile.location %}
-                    <a href="" class="btn btn-primary btn-sm">Join Hood</a>
-                    {% endif %} 
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    
-    </div> -->
 
 
 

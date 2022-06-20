@@ -11,14 +11,6 @@
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}"> 
 
 
-    <style>
-        .navbar-nav nav-item a:hover {
-            color: aqua;
-        }
-
-
-    </style>
-
     {% block styles %}
     {% bootstrap_css %}
     <!-- Bootstrap CSS -->
@@ -72,23 +64,51 @@
                         <a class="nav-link" href="{% url 'create-hood' %}" style="color: #ffffff; font-size: 18px; margin-right: 20px;">Create Hood</a> 
                     </li>
                     {% endif %} 
+                    
+                    <!-- Profile -->
+                    <div class="d-flex align-items-center">
+                        <!-- Avatar -->
+                        <div class="dropdown">
+                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{user.profile.profile_picture.url}}" class="rounded-circle" width="40" height="40" alt="" loading="lazy"/>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                                {% if user.is_authenticated %}
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'profile' user.username %}" style="color: #000000; font-size: 15px;">My Profile</a> 
+                                </li>
 
-                    <li class="nav-item">
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'sign-out' %}" style="color: #000000; font-size: 15px;">Sign Out</a>
+                                </li>
+                                {% else %}
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'sign-up' %}" style="color: #000000; font-size: 15px;">Sign Up</a> 
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'sign-in' %}" style="color: #000000; font-size: 15px;">Sign In</a> 
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End profile -->
+
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#" style="color: #ffffff; font-size: 18px; margin-right: 20px;">Businesses</a>
                     </li>
                     
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color: #ffffff; font-size: 18px;">Hood Updates</a>
-                    </li>
+                    </li> -->
                 </ul>
                 <!-- Left links -->
             </div>
 
             
             <!-- Collapsible wrapper -->
-            <!-- Right elements -->
-            <div class="d-flex align-items-center">
-                <!-- Avatar -->
+            <!-- Profile -->
+            <!-- <div class="d-flex align-items-center">
                 <div class="dropdown">
                     <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{user.profile.profile_picture.url}}" class="rounded-circle" width="40" height="40" alt="" loading="lazy"/>
@@ -112,8 +132,8 @@
                         {% endif %}
                     </ul>
                 </div>
-            </div>
-            <!-- Right elements -->
+            </div> -->
+            <!-- End profile -->
             
         </div>
         <!-- Container wrapper -->
