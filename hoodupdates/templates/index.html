@@ -44,10 +44,10 @@
                     <p class="card-text">{{hood.description}}</p> 
                     
                     
-                    {% if request.user.profile.location == hood %}
-                    <a href="" class="btn btn-sm" style="background-color: #e14658; color: #ffffff;">Leave Hood</a>
-                    {% elif not request.user.profile.location %}
-                    <a href="" class="btn btn-sm" style="background-color: #57652a; color: #ffffff;">Join Hood</a>
+                    {% if request.user.profile.hood == hood %}
+                    <a href="{% url 'leave-hood' hood.id %}" class="btn btn-sm" style="background-color: #ff0000; color: #ffffff;">Leave Hood</a>
+                    {% elif not request.user.profile.hood %} 
+                    <a href="{% url 'join-hood' hood.id %}" class="btn btn-sm" style="background-color: #45af2a;; color: #ffffff;">Join Hood</a>
                     {% endif %} 
                 </div>
 
